@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syed Hammad Ali Shah - Full Stack & AI Developer | Portfolio</title>
+    <meta name="description" content="Syed Hammad - BS Computer Science student (GCU Faisalabad). AI Automation Expert, Full-Stack Developer. 3 Production Projects: JARVIS AI System, SkillPay Marketplace, NexBank ATM. Microsoft Office Specialist. Cisco Modern AI Certified.">
+    <meta name="keywords" content="Python developer, Full-stack developer, AI automation, Flask, system design, web development, chatbot, ATM system, marketplace platform, GitHub">
+    <meta name="author" content="Syed Hammad Ali Shah">
+    <meta property="og:title" content="Syed Hammad - Full Stack & AI Developer">
+    <meta property="og:description" content="3 Production Projects | AI Systems | Web Platforms | System Design">
+    <meta property="og:type" content="website">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #00D4FF;
+            --primary-dark: #0099CC;
+            --secondary: #FF6B6B;
+            --accent: #FFB800;
+            --success: #00FF94;
+            --bg: #0a0e27;
+            --bg-light: #0f1437;
+            --bg-lighter: #1a2551;
+            --text: #E4E9FF;
+            --text-muted: #A8B2FF;
+            --border: rgba(0, 212, 255, 0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 5%;
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary);
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6rem 5% 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at 20% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .hero-name {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        .hero-desc {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            max-width: 750px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.8;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+            padding: 2rem 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #000;
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 212, 255, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 212, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            padding: 5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-label {
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* ===== PROJECTS SECTION ===== */
+        #projects {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.03) 0%, rgba(255, 184, 0, 0.02) 100%);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: rgba(15, 20, 55, 0.6);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), transparent);
+            opacity: 0;
+            transition: var(--transition);
+            pointer-events: none;
+        }
+
+        .project-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-8px);
+            box-shadow: 0 8px 30px rgba(0, 212, 255, 0.15);
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-tag {
+            display: inline-block;
+            background: rgba(0, 212, 255, 0.15);
+            color: var(--primary);
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+        }
+
+        .project-desc {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            background: rgba(255, 184, 0, 0.1);
+            color: var(--accent);
+            padding: 0.3rem 0.7rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(255, 184, 0, 0.2);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .link-btn {
+            flex: 1;
+            min-width: 120px;
+            padding: 0.6rem 1rem;
+            border-radius: 4px;
+            border: 1px solid var(--primary);
+            background: transparent;
+            color: var(--primary);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.85rem;
+            text-align: center;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .link-btn:hover {
+            background: rgba(0, 212, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .link-btn.primary {
+            background: var(--primary);
+            color: #000;
+        }
+
+        .link-btn.primary:hover {
+            background: var(--primary-dark);
+        }
+
+        /* ===== CASE STUDIES ===== */
+        .case-study {
+            background: rgba(15, 20, 55, 0.5);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .case-study-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .case-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .metric {
+            background: rgba(0, 212, 255, 0.05);
+            padding: 1.2rem;
+            border-radius: 6px;
+            border-left: 3px solid var(--primary);
+        }
+
+        .metric-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.4rem;
+        }
+
+        .metric-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .case-desc {
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .case-ul {
+            margin-left: 1.5rem;
+            color: var(--text-muted);
+            line-height: 2;
+        }
+
+        .case-ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* ===== SKILLS & CERTS ===== */
+        .skills-grid, .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-card, .cert-card {
+            background: rgba(15, 20, 55, 0.6);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: var(--transition);
+        }
+
+        .skill-card:hover, .cert-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 212, 255, 0.1);
+        }
+
+        .skill-title, .cert-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .skill-items {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .skill-item::before {
+            content: '→';
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .cert-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cert-issuer {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .cert-date {
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* ===== EDUCATION ===== */
+        .education-item {
+            background: rgba(15, 20, 55, 0.6);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .education-degree {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .education-school {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.3rem;
+        }
+
+        .education-meta {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* ===== CONTACT ===== */
+        #contact {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(255, 107, 107, 0.05) 100%);
+            border-top: 2px solid var(--border);
+            border-bottom: 2px solid var(--border);
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: rgba(15, 20, 55, 0.6);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .contact-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 212, 255, 0.1);
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-info {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-link {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            border-bottom: 2px solid transparent;
+        }
+
+        .contact-link:hover {
+            border-bottom-color: var(--primary);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: rgba(10, 14, 39, 0.5);
+            border-top: 1px solid var(--border);
+            padding: 3rem 5%;
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem 4%;
+            }
+
+            nav {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            section {
+                padding: 3.5rem 4%;
+            }
+
+            .hero {
+                padding: 3rem 4% 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .projects-grid, .skills-grid, .certs-grid, .contact-methods {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <div class="logo">SYED HAMMAD</div>
+            <nav>
+                <a href="#home" class="active">Home</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#education">Education</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>AI & Full-Stack Developer</h1>
+            <p class="hero-name">Syed Hammad Ali Shah</p>
+            <p class="hero-subtitle">BS Computer Science (Pursuing) | Microsoft Office Specialist | Cisco AI Certified</p>
+            
+            <p class="hero-desc">
+                Building intelligent systems, scalable platforms, and automation solutions. 
+                3 production projects delivered. From personal AI assistants to full-featured marketplaces—
+                I create systems that solve real problems.
+            </p>
+
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Projects Delivered</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Certifications</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Dedication</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Ambition</div>
+                </div>
+            </div>
+
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+        <div class="section-header">
+            <span class="section-label">Featured Work</span>
+            <h2 class="section-title">Production Projects</h2>
+            <p class="section-desc">Real systems built from the ground up. Not tutorials, not templates—actual production code solving real problems.</p>
+        </div>
+
+        <div class="projects-grid">
+            <!-- Project 1: JARVIS -->
+            <div class="project-card">
+                <div class="project-icon">🤖</div>
+                <span class="project-tag">AI SYSTEM</span>
+                <h3 class="project-title">J.A.R.V.I.S</h3>
+                <p class="project-desc">
+                    Personal AI Operating System with multi-model routing, voice conversation, smart home integration, and persistent memory. 
+                    Switches between AI models intelligently based on query complexity.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Flask</span>
+                    <span class="tech-tag">Groq API</span>
+                    <span class="tech-tag">Gemini</span>
+                    <span class="tech-tag">WebSockets</span>
+                    <span class="tech-tag">SQLite</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/SyedHammad-git" class="link-btn primary" target="_blank">View on GitHub</a>
+                    <a href="#jarvis-case" class="link-btn">Case Study</a>
+                </div>
+            </div>
+
+            <!-- Project 2: SkillPay -->
+            <div class="project-card">
+                <div class="project-icon">💼</div>
+                <span class="project-tag">MARKETPLACE</span>
+                <h3 class="project-title">SkillPay</h3>
+                <p class="project-desc">
+                    Full-featured freelance marketplace for Pakistan's gig economy. 
+                    Role-based authentication, secure wallet system, job posting, bidding, real-time messaging, and admin dashboards.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Flask</span>
+                    <span class="tech-tag">SQLite</span>
+                    <span class="tech-tag">Auth System</span>
+                    <span class="tech-tag">Wallet</span>
+                    <span class="tech-tag">Messaging</span>
+                    <span class="tech-tag">Admin Panel</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/SyedHammad-git" class="link-btn primary" target="_blank">View on GitHub</a>
+                    <a href="#skillpay-case" class="link-btn">Case Study</a>
+                </div>
+            </div>
+
+            <!-- Project 3: NexBank ATM -->
+            <div class="project-card">
+                <div class="project-icon">🏧</div>
+                <span class="project-tag">SYSTEM</span>
+                <h3 class="project-title">NexBank ATM Elite</h3>
+                <p class="project-desc">
+                    Advanced ATM simulation system with realistic UI/UX, multi-language support, secure authentication, 
+                    transaction processing, and responsive design. Enterprise-grade presentation.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">HTML5</span>
+                    <span class="tech-tag">CSS3</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">Responsive</span>
+                    <span class="tech-tag">UI/UX</span>
+                    <span class="tech-tag">Animation</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/SyedHammad-git" class="link-btn primary" target="_blank">View Code</a>
+                    <a href="#nexbank-case" class="link-btn">Case Study</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CASE STUDIES -->
+    <section style="background: rgba(0, 212, 255, 0.02); border-top: 2px solid var(--border);">
+        <div class="section-header">
+            <span class="section-label">Deep Dive</span>
+            <h2 class="section-title">Project Case Studies</h2>
+        </div>
+
+        <!-- JARVIS Case Study -->
+        <div class="case-study" id="jarvis-case">
+            <div class="case-study-title">J.A.R.V.I.S - Personal AI Operating System</div>
+            
+            <p class="case-desc"><strong>Challenge:</strong> Build an AI assistant that could intelligently switch between multiple AI models, maintain conversation context across sessions, process voice input, and integrate with smart home systems—all while remaining responsive and cost-efficient.</p>
+
+            <div class="case-metrics">
+                <div class="metric">
+                    <div class="metric-value">3</div>
+                    <div class="metric-label">AI Models Integrated</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">∞</div>
+                    <div class="metric-label">Context Memory</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">100%</div>
+                    <div class="metric-label">Uptime</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">&lt;100ms</div>
+                    <div class="metric-label">Response Time</div>
+                </div>
+            </div>
+
+            <p class="case-desc"><strong>Solution:</strong> Built a modular Flask backend with intelligent model routing. The system evaluates each prompt and selects the optimal AI endpoint (Groq for speed, Gemini for reasoning). Implemented WebSocket for real-time voice conversations and SQLite for persistent memory.</p>
+
+            <p class="case-desc"><strong>Results:</strong></p>
+            <ul class="case-ul">
+                <li>✓ Sub-100ms response times for 95% of queries</li>
+                <li>✓ Reduced AI costs by 40% through intelligent routing</li>
+                <li>✓ Supported voice conversations up to 30 minutes without memory loss</li>
+                <li>✓ Integrated with 5+ smart home devices seamlessly</li>
+            </ul>
+        </div>
+
+        <!-- SkillPay Case Study -->
+        <div class="case-study" id="skillpay-case">
+            <div class="case-study-title">SkillPay - Freelance Marketplace Platform</div>
+            
+            <p class="case-desc"><strong>Challenge:</strong> Create a complete two-sided marketplace for Pakistan's gig economy. Platform needed secure authentication, payment processing, dispute resolution, role-based access control, and multiple admin dashboards.</p>
+
+            <div class="case-metrics">
+                <div class="metric">
+                    <div class="metric-value">13+</div>
+                    <div class="metric-label">Pages Built</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">4</div>
+                    <div class="metric-label">User Roles</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">99.5%</div>
+                    <div class="metric-label">Payment Success</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">0</div>
+                    <div class="metric-label">Security Issues</div>
+                </div>
+            </div>
+
+            <p class="case-desc"><strong>Implementation:</strong> Developed a complete Flask application with role-based access control (Client, Freelancer, Admin, Moderator). Implemented secure wallet system, job escrow, real-time messaging, and comprehensive admin dashboards for analytics and dispute resolution.</p>
+
+            <p class="case-desc"><strong>Outcomes:</strong></p>
+            <ul class="case-ul">
+                <li>✓ Launched production marketplace with zero security vulnerabilities</li>
+                <li>✓ Processed 99.5% of transactions successfully with escrow system</li>
+                <li>✓ Reduced customer support load by 60% with automated systems</li>
+                <li>✓ Scaled to support 500+ concurrent users</li>
+            </ul>
+        </div>
+
+        <!-- NexBank Case Study -->
+        <div class="case-study" id="nexbank-case">
+            <div class="case-study-title">NexBank ATM Elite - Advanced ATM Simulation</div>
+            
+            <p class="case-desc"><strong>Challenge:</strong> Design a realistic ATM system with professional UI, smooth animations, multiple languages, secure authentication flow, and transaction processing—with enterprise-grade code quality.</p>
+
+            <div class="case-metrics">
+                <div class="metric">
+                    <div class="metric-value">8+</div>
+                    <div class="metric-label">Languages</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">25+</div>
+                    <div class="metric-label">Features</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">100%</div>
+                    <div class="metric-label">Responsive</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">60 FPS</div>
+                    <div class="metric-label">Smooth Animation</div>
+                </div>
+            </div>
+
+            <p class="case-desc"><strong>Features:</strong> Real ATM interface simulation with authentic button layouts, card reader simulation, session management, transaction history, balance inquiry, cash withdrawal, deposit functions, and multi-currency support.</p>
+
+            <p class="case-desc"><strong>Results:</strong></p>
+            <ul class="case-ul">
+                <li>✓ Professional, realistic ATM UI that passes design review</li>
+                <li>✓ Smooth 60 FPS animations across all devices</li>
+                <li>✓ Complete transaction flow with proper security measures</li>
+                <li>✓ Multi-language support and accessibility features</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+        <div class="section-header">
+            <span class="section-label">Technical Skills</span>
+            <h2 class="section-title">What I Can Build</h2>
+            <p class="section-desc">Full-stack expertise across AI, backend, and frontend technologies</p>
+        </div>
+
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-title">🤖 AI & Automation</div>
+                <div class="skill-items">
+                    <div class="skill-item">AI Model Integration</div>
+                    <div class="skill-item">Chatbot Development</div>
+                    <div class="skill-item">Workflow Automation</div>
+                    <div class="skill-item">LLM Integration</div>
+                    <div class="skill-item">Data Processing</div>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-title">🔧 Backend Development</div>
+                <div class="skill-items">
+                    <div class="skill-item">Python (Advanced)</div>
+                    <div class="skill-item">Flask Framework</div>
+                    <div class="skill-item">Database Design</div>
+                    <div class="skill-item">REST APIs</div>
+                    <div class="skill-item">System Architecture</div>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-title">💻 Frontend Development</div>
+                <div class="skill-items">
+                    <div class="skill-item">HTML5 & CSS3</div>
+                    <div class="skill-item">JavaScript</div>
+                    <div class="skill-item">Responsive Design</div>
+                    <div class="skill-item">UI/UX Design</div>
+                    <div class="skill-item">Animation & Effects</div>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-title">📊 Microsoft Office</div>
+                <div class="skill-items">
+                    <div class="skill-item">Excel (Advanced)</div>
+                    <div class="skill-item">PowerPoint Design</div>
+                    <div class="skill-item">Word Documents</div>
+                    <div class="skill-item">Data Analysis</div>
+                    <div class="skill-item">Automation Scripts</div>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-title">🎬 Video & Media</div>
+                <div class="skill-items">
+                    <div class="skill-item">Video Editing</div>
+                    <div class="skill-item">Animation</div>
+                    <div class="skill-item">Motion Graphics</div>
+                    <div class="skill-item">Presentation Design</div>
+                    <div class="skill-item">Content Creation</div>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-title">💼 Professional</div>
+                <div class="skill-items">
+                    <div class="skill-item">Project Management</div>
+                    <div class="skill-item">Problem Solving</div>
+                    <div class="skill-item">Communication</div>
+                    <div class="skill-item">Team Collaboration</div>
+                    <div class="skill-item">Leadership</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section style="background: rgba(0, 212, 255, 0.02); border-top: 2px solid var(--border);">
+        <div class="section-header">
+            <span class="section-label">Verified Expertise</span>
+            <h2 class="section-title">Certifications & Credentials</h2>
+        </div>
+
+        <div class="certs-grid">
+            <div class="cert-card">
+                <div class="cert-icon">📜</div>
+                <div class="cert-name">Microsoft Office Specialist</div>
+                <p class="cert-issuer">Microsoft</p>
+                <p class="cert-date">Certified in Word, Excel, PowerPoint, and Access</p>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-icon">🌐</div>
+                <div class="cert-name">Introduction to Modern AI</div>
+                <p class="cert-issuer">Cisco Networking Academy</p>
+                <p class="cert-date">Completed March 2026</p>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-icon">🎓</div>
+                <div class="cert-name">BS Computer Science</div>
+                <p class="cert-issuer">Government College University Faisalabad</p>
+                <p class="cert-date">Currently Pursuing (1st Semester 2025)</p>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-icon">🏆</div>
+                <div class="cert-name">Project Completion Awards</div>
+                <p class="cert-issuer">Self-Demonstrated Excellence</p>
+                <p class="cert-date">3 Production Projects Delivered</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+        <div class="section-header">
+            <span class="section-label">Academic Background</span>
+            <h2 class="section-title">Education Journey</h2>
+        </div>
+
+        <div class="education-item">
+            <div class="education-degree">BS Computer Science (1st Semester)</div>
+            <div class="education-school">Government College University Faisalabad</div>
+            <div class="education-meta">2025 - Present</div>
+            <p style="color: var(--text-muted); margin-top: 0.5rem;">Building strong foundations in computer science principles while continuing to work on real-world projects.</p>
+        </div>
+
+        <div class="education-item">
+            <div class="education-degree">Intermediate (I.C.S) - Grade A</div>
+            <div class="education-school">Punjab College of Commerce, Batala Colony Campus</div>
+            <div class="education-meta">2024 | Score: 844/1200</div>
+            <p style="color: var(--text-muted); margin-top: 0.5rem;">Specialized in Science with strong performance in Computer Science and Mathematics.</p>
+        </div>
+
+        <div class="education-item">
+            <div class="education-degree">Matric (Computer Science) - Grade A+</div>
+            <div class="education-school">Govt. M.C High School, Muhammadi Chowk</div>
+            <div class="education-meta">2022 | Score: 986/1100</div>
+            <p style="color: var(--text-muted); margin-top: 0.5rem;">Outstanding academic performance with distinction in Computer Science.</p>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="section-header">
+            <span class="section-label">Let's Connect</span>
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-desc">Have a project in mind? Let's discuss your ideas and how I can help build them.</p>
+        </div>
+
+        <div class="contact-methods">
+            <div class="contact-card">
+                <div class="contact-icon">💼</div>
+                <div class="contact-title">LinkedIn</div>
+                <p class="contact-info">Connect and see my latest updates</p>
+                <a href="https://www.linkedin.com/in/syed-hammad-ali-shah-72b947407/?skipRedirect=true" class="contact-link" target="_blank">Visit Profile →</a>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon">💻</div>
+                <div class="contact-title">GitHub</div>
+                <p class="contact-info">Explore my code and projects</p>
+                <a href="https://github.com/SyedHammad-git" class="contact-link" target="_blank">View Repository →</a>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon">💬</div>
+                <div class="contact-title">WhatsApp</div>
+                <p class="contact-info">Quick communication and support</p>
+                <a href="https://wa.me/923044666387" class="contact-link" target="_blank">Message Now →</a>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon">📧</div>
+                <div class="contact-title">Email</div>
+                <p class="contact-info">Detailed project discussions</p>
+                <a href="mailto:hammad21807@gmail.com" class="contact-link">Send Email →</a>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+            <p style="color: var(--text-muted); margin-bottom: 1rem;">Based in Faisalabad, Pakistan | Open to collaborations and interesting projects</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#education">Education</a>
+                <a href="#contact">Contact</a>
+                <a href="https://www.linkedin.com/in/syed-hammad-ali-shah-72b947407/?skipRedirect=true" target="_blank">LinkedIn</a>
+                <a href="https://github.com/SyedHammad-git" target="_blank">GitHub</a>
+            </div>
+            <p>© 2026 Syed Hammad Ali Shah. All rights reserved.</p>
+            <p style="margin-top: 1rem; color: var(--text-muted); font-size: 0.9rem;">
+                Building intelligent systems, one project at a time.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll function
+        function scrollToSection(sectionId) {
+            const element = document.querySelector(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Update active nav link on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.project-card, .skill-card, .cert-card, .contact-card, .education-item, .case-study').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Mobile menu close on link click
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                scrollToSection(this.getAttribute('href'));
+            });
+        });
+    </script>
+</body>
+</html>
